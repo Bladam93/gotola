@@ -28,3 +28,17 @@ body {
   color: white;
   z-index: 1;
 }
+
+.blur-box {
+  position: relative;
+  z-index: 2; /* Biztosítja, hogy a blur-box a háttérrel szemben legyen előtérben */
+}
+
+.blur-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(2px); /* Blur effect csak a háttérre */
+}
