@@ -58,7 +58,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <video autoPlay loop muted className="background-video">
+      <video controls loop className="background-video">
         <source src={`${process.env.PUBLIC_URL}/latimelapse/latimelapse.mp4`} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
