@@ -1,7 +1,7 @@
 // App.js
-import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './App.css';
 
 const App = () => {
   const targetDate = new Date('2024-05-04T05:00:00');
@@ -59,24 +59,23 @@ const App = () => {
   return (
     <div className="app-container">
       <video autoPlay loop muted className="background-video">
-        <source src="./latimelapse/latimelapse.mp4" type="video/mp4" />
+        <source src={`${process.env.PUBLIC_URL}/latimelapse/latimelapse.mp4`} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="blur-background"></div>
       <div className="center-content">
         <div className="blur-box">
-        <h1>GoToLA</h1>
-        <div>
-          <p>{`${timeLeft.days} nap ${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`}</p>
-          {weather && (
-            <div>
-              <p>Los Angeles<br /> {weather.main.temp} °C<br />
-              {` ${new Date(
-                weather.dt * 1000
-              ).toLocaleTimeString()}`}</p>
-            </div>
-          
-          )}
+          <h1>GoToLA</h1>
+          <div>
+            <p>{`${timeLeft.days} nap ${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`}</p>
+            {weather && (
+              <div>
+                <p>
+                  Los Angeles<br /> {weather.main.temp} °C<br />
+                  {` ${new Date(weather.dt * 1000).toLocaleTimeString()}`}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
