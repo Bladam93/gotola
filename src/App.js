@@ -1,10 +1,10 @@
 // App.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import './App.css';
 
 const App = () => {
-  const targetDate = new Date('2024-05-04T05:00:00');
+  const targetDate = useMemo(() => new Date('2024-05-04T05:00:00'), []);
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
   const [weather, setWeather] = useState(null);
 
