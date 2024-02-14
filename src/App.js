@@ -62,7 +62,9 @@ const App = () => {
         <source src="./latimelapse/latimelapse.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <div className="blur-background"></div>
       <div className="center-content">
+        <div className="blur-box">
         <h1>GoToLA</h1>
         <div>
           <p>{`${timeLeft.days} nap ${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`}</p>
@@ -75,6 +77,7 @@ const App = () => {
             </div>
           
           )}
+          </div>
         </div>
       </div>
     </div>
