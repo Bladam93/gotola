@@ -7,10 +7,12 @@ const App = () => {
   const targetDate = useMemo(() => new Date('2024-05-04T05:00:00'), []);
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
   const [weather, setWeather] = useState(null);
+  const [losAngelesTime, setLosAngelesTime] = useState(new Date());
 
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft(calculateTimeLeft(targetDate));
+      setLosAngelesTime(new Date()); // Frissítsd a Los Angeles-i időt minden másodpercben
     }, 1000);
 
     return () => {
@@ -71,8 +73,11 @@ const App = () => {
             {weather && (
               <div>
                 <p>
-                  Los Angeles<br /> {weather.main.temp} °C<br />
-                  {` ${new Date(weather.dt * 1000).toLocaleTimeString()}`}
+                  Los Angeles<br /> {Math.round(weather.main.temp)} °C<br />
+                  {`${losAngelesTime.toLocaleTimeString('en-US', {
+                    timeZone: 'America/Los_Angeles',
+                    hour12: false,
+                  })}`}
                 </p>
               </div>
             )}
